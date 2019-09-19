@@ -1,0 +1,11 @@
+<div *ngIf="route.children.length === 0" class="container">
+    <div *ngFor="let product of allproducts" class="card m-2" style="width: 18rem;display:inline-block">
+        <img src="{{product.image}}" class="card-img-top" alt="products image">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text">${{product.price}}</p>
+            <button class="btn btn-primary" [routerLink]="['edit/' + product._id]">Edit</button> | <button class="btn btn-danger" (click)="onDelete(product)">Delete</button>
+        </div>
+    </div>
+</div>
+<router-outlet (someEvent)="ngOnInit()"></router-outlet>
